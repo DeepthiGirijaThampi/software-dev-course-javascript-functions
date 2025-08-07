@@ -35,8 +35,17 @@ reusable functions that solve specific tasks. This activity encourages:
 // 2. Format the output string properly.
 // 3. Capitalize the role if needed.
 // 4. Return the result.
-
-
+function capitalize(word){
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+function formatString(name,role){
+    return `Name: ${name}, Role: ${role}`;
+}
+function generateAttendeeBadge(name , role){
+ let capitaliseRole = capitalize(role);
+ return formatString(name,capitaliseRole);
+}
+console.log(generateAttendeeBadge("Alice","speaker"));
 // ============================================
 // 🧩 Task 2: Calculate Event Cost
 // ============================================
@@ -50,8 +59,26 @@ reusable functions that solve specific tasks. This activity encourages:
 // 2. Check if attendee count is over 100.
 // 3. If so, apply a 10% discount.
 // 4. Return the final total.
+function calculateBaseCost(numOfAttendess, costPerAttendees){
+ return numOfAttendess * costPerAttendees;
+}
+function isEligibleForDiscount(numOfAttendess){
+    return (numOfAttendess > 100);
+}
+function applyDiscount(baseCost){
+    return (baseCost * 0.90);
+}
+function calculateEventCost(numOfAttendess, costPer){
+    let totalCost = calculateBaseCost(numOfAttendess,costPer);
+    if(isEligibleForDiscount(numOfAttendess)){
+     totalCost = applyDiscount(totalCost);
+    }
+ return totalCost;
+}
 
-
+console.log(calculateEventCost(80,50));
+console.log(calculateEventCost(100,50))
+console.log(calculateEventCost(102,10));
 // ============================================
 // 🧩 Task 3: Validate Email
 // ============================================
@@ -64,7 +91,12 @@ reusable functions that solve specific tasks. This activity encourages:
 // 1. Check if the string includes both "@" and ".".
 // 2. Return true or false accordingly.
 
-
+function isValidateEmail(email){
+  return email.includes("@") && email.includes(".");
+}
+console.log(isValidateEmail("student"));
+console.log(isValidateEmail("student@jj"));
+console.log(isValidateEmail("student@jj.com"));
 // ============================================
 // 🧠 Collaborative Steps
 // ============================================
